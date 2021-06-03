@@ -45,7 +45,7 @@
 				</p>
 				<ul class="actions">
 					<li><a class="button special big icon fa-arrow-down"
-					onclick="$('html, body').animate({scrollTop: $('#three').offset().top + 55}, 1000);">Get Started</a></li>
+					onclick="$('html, body').animate({scrollTop: $('#three').offset().top + 55}, 1000);">Look at Analysis</a></li>
 				</ul>
 			</section>
 
@@ -65,53 +65,85 @@
 <!-- Stats -->
 
 			<!-- Stats -->
-				<section id="three" class="wrapper style1">
-					<div class="row 100%">
-						<div class="-1u 10u 12u$(medium)">
-							<div class="taps">
-								<!-- <li class='back' onclick=onClick(event)>Hosts</li> -->
-								<li class="selected" onclick=onClick(event)>Attendance</li>
-								<li class= 'back' onclick=onClick(event)>Bubble</li>
-							</div>
+			<section id="three" class="wrapper style1">
+				<div class="row 100%">
+					<div class="-1u 10u 12u$(medium)">
+						<div class="taps">
+							<!-- <li class='back' onclick=onClick(event)>Hosts</li> -->
+							<center>
+							<h1>Exploring the Dataset</h1>
+							</center>
+							<p>The dataset provided is an extract of the SEEK job market data, the data provided is 318,477 rows and 13 categories of historical job listings on the SEEK website. As a leading employment marketplace in Australia, the dataset opens the opportunity for in depth analysis in to the Australian Job Market to draw insights into emerging fields, fundamental skills for job sectors and salary expectations. The uncleaned categories for each job listing are as follows:</p>
+							<ul class="HorizontalList">
+								<li class="CustomList"><b>ID</b></li>
+								<li class="CustomList"><b>Title</b></li>							
+								<li class="CustomList"><b>Company</b></li>
+								<li class="CustomList"><b>Date</b></li>
+								<li class="CustomList"><b>Location</b></li>
+								<li class="CustomList"><b>Area</b></li>
+								<li class="CustomList"><b>Classification</b></li>
+								<li class="CustomList"><b>Subclassification</b></li>
+								<li class="CustomList"><b>Requirement</b></li>
+								<li class="CustomList"><b>Full Description</b></li>
+								<li class="CustomList"><b>Lowest Salary</b></li>
+								<li class="CustomList"><b>Highest Salary</b></li>
+								<li class="CustomList"><b>Job Type</b></li>
 
-							<div id="countryMap" style="width: 1100; text-align: center; margin: 0 auto;"></div>
-							
-								<div style="position:absolute; right: 150px;"> 
-									<div id ='infoTest'><h4>Country</h4> <b></b> </div>
-								</div>
-							
-								<div id="countryScale" style="margin: 0 auto;">
-									
-									<div id="selector">
-											<select id="x-selector" onchange="onChangeX()">
-												<option value="Points">Points</option>
-												<option value="Goals">Goals</option>
-												<option value="Goals Against">Goals Against</option>
-												<option value="Yellow Cards">Yellow Cards</option>
-												<option value="Victories">Victories</option>
-												<option value="Played Matches">Played Matches</option>
-											</select>
-										<select id="y-selector" onchange="onChangeY()">
-											<option value="Goals">Goals</option>
-											<option value="Points">Points</option>
-											<option value="Goals Against">Goals Against</option>
-											<option value="Yellow Cards">Yellow Cards</option>
-											<option value="Victories">Victories</option>
-											<option value="Played Matches">Played Matches</option>
-										</select>
-									</div>
-							</div>
-							<div id="slidecontainer">
-								<h2>Year <span id="demo"></span></h2>
-								<input type="range" min="1930" max="2014" value="2014" step ="4" class="slider" id="myRange">
-							</div>
+							</ul>
+							<p> The data has been cleaned and analysis completed for the following:</p>
+							<br>
+							<button onclick="ChangeToLocation()">Analysis by Location</button>
+							<button onclick="ChangeToSector()">Analysis by Sector</button>
+							<br>
+						</div>
+
+						<div id="myLocation" style="display: block">
+							<br>
+							<h1> <b> <center>Seek Dataset Analysis by Market Location </b></center></h1>
+							<p> A predictive model for showing which locations will have the largest job growth can be created by performing an exploratory data analysis on the market size for each city, followed by a statistical analysis on patterns that can then be used for future predictions. The data has been grouped by number of listings for each location, this separates the data and reveals which locations have the largest employment market. For clarity only the five prominent market locations have been shown below within Figure 2.2.1.</p>
+							<center><img src="\images\TopCities_Listings.png">
+							<h5>Figure 1.1: Top Cities by Job Listings</h5></center>
+							<p>This visualises the data:</p>
+							<ul class="HorizontalList">
+								<li class="CustomList"><b>Sydney:</b> 48,846</li>
+								<li class="CustomList"><b>Melbourne:</b> 36,756</li>
+								<li class="CustomList"><b>Brisbane:</b> 16,795</li>
+								<li class="CustomList"><b>Perth:</b> 10,519</li>
+								<li class="CustomList"><b>Adelaide:</b> 5,233</li>
+							</ul>
+							<p>The data has then been grouped by the mean salary for each market location and sorted, the top 5 locations can be visualized below within Figure 2.2.2. This represents nationally the highest paying locations within Australia based on this dataset.</p>
+							<center><img src="\images\TopCities_Salary.png">
+								<h5>Figure 1.2: Top Cities by Salary</h5></center>
+							<p>This visualizes the data:</p>
+							<ul class="HorizontalList">
+								<li class="CustomList"><b>ACT:</b> $139,761</li>
+								<li class="CustomList"><b>Port Macquarie & Mid North Coast:</b> $108,812</li>
+								<li class="CustomList"><b>Katherine & Northern Australia:</b> $105,704 </li>
+								<li class="CustomList"><b>Western QLD:</b>$104,430</li>
+								<li class="CustomList"><b>Sydney:</b>$102,540</li>
+							</ul>
+							<br>
+							<p>With this information, it is evident that on the surface the cities with the largest employment market and the highest paying market show little correlation with the exception of Sydney appearing within both Figures. To determine if any outliers and seek evidence of data manipulation an overview of the job posting cycle can be gathered from the below Figure 2.2.3, showing the amount of unique job listings per day. </p>
+							<center><img src="\images\JobListingsPerDay.png">
+								<h5>Figure 1.3: Job Listings per day</h5></center>
+							<p>The above figure shows that there are no significant outliers in job postings, some points of interest are the spike in listings on the 16/11/2018 and the reduced listings from 15/11/2018 to 10/12/2018. It is currently unknown if there was any external influence for the drop in listings for that period or if it is a natural occurrence, more data is required before conclusions can be drawn.</p>
+							<p>The next analysis focusses on determining which regions are having the most growth, it is possible that these locations have had significant outliers due to a day of mass job listings that has misrepresented the dataset, e.g. The highest posting day on the 16th may heavily skew the data towards Sydney having the largest job market. A market location can be considered to be experiencing sustainable growth if it continually maintains high daily job listings. The dataset has been grouped by location and each unique posting for that date has been counted.</p>
+							<center><img src="\images\TopLocations_perDay.png">
+								<h5>Figure 1.3: Job Listings per day</h5></center>
+						</div>
+
+						<div id="mySector" style="display:none">
+							<p>As with the analysis completed on the market locations, a similar analysis can be completed upon the market in relation to the Job Sector. An exploratory analysis to visualize which are the top sectors for both market size and average salary, followed by a statistical analysis on the trending sectors to allow for a predictive model on which sectors will have high growth potential with high average salaries.</p>
+							<p>The data has been grouped by number of listings for each sector, this separates the data and reveals which sectors have the largest employment market. For clarity only the five prominent market sectors have been shown below within Figure 2.3.1.</p>
+							<center><img src="\images\TopSectors_Listings.png">
+								<h5>Figure 2.1: Top Sectors by Job Listings</h5></center>
+
+						</div>
+
 						</div>
 					</div>
-
-					<div class="row 100%">
-						
-					</div>
-				</section>
+				</div>
+			</section>
 
 		<!-- Footer 
 			<footer id="footer">

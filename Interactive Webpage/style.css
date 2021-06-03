@@ -2,6 +2,16 @@ body {
 	background: darkwhite;
 }
 
+.HorizontalList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.CustomList{
+  margin-left: 3em;
+  float: left;
+}
 p {
 	color: grey;
 	font-size: 12pt
