@@ -127,16 +127,63 @@
 							<center><img src="\images\JobListingsPerDay.png">
 								<h5>Figure 1.3: Job Listings per day</h5></center>
 							<p>The above figure shows that there are no significant outliers in job postings, some points of interest are the spike in listings on the 16/11/2018 and the reduced listings from 15/11/2018 to 10/12/2018. It is currently unknown if there was any external influence for the drop in listings for that period or if it is a natural occurrence, more data is required before conclusions can be drawn.</p>
-							<p>The next analysis focusses on determining which regions are having the most growth, it is possible that these locations have had significant outliers due to a day of mass job listings that has misrepresented the dataset, e.g. The highest posting day on the 16th may heavily skew the data towards Sydney having the largest job market. A market location can be considered to be experiencing sustainable growth if it continually maintains high daily job listings. The dataset has been grouped by location and each unique posting for that date has been counted.</p>
-							<center><img src="\images\TopLocations_perDay.png">
+							<p>The next analysis focusses on determining which regions are having the most growth, it is possible that these locations have had significant outliers due to a day of mass job listings that has misrepresented the dataset, e.g. The highest posting day on the 16th may heavily skew the data towards Sydney having the largest job market. A market location can be considered to be experiencing sustainable growth if it continually maintains high daily job listings. The dataset has been grouped by location and counted each day the location has the highest number of listings. </p>
+							<p>This analysis can be seen within Figure 1.3.</p>
+							<center><img src="\images\TopGrowth_LocationDays.png">
 								<h5>Figure 1.3: Job Listings per day</h5></center>
+							<p>From this we can see that Sydney continually has the highest number of postings, nearly six times that of the closest competitor of Melbourne and Brisbane. This shows what would be expected from a growing market location. This can be further backed up by taking a look at the average number of listings per day, while showing the same ranking it will be more indicative of how much separation there is between the locations.</p>
+							<center><img src="\images\TopGrowth_LocationAverage.png">
+								<h5>Figure 1.4: Average Job Listings per day</h5></center>
+							<p>From the above figure it is evident why Sydney has the largest employment market when it is multitudes higher average daily listings than competing cities.</p>
+							<p>With the exploratory and statistical analysis completed a predictive analysis can be completed to attempt to create a predictive model on the expected growth of the top cities. The focus of the model is Sydney, where the method used will be a time series analysis with exponential smoothing. This form of analysis allows for trends to be appear in the prediction by placing an emphasis on more recent data and reducing the effect of old. In the application of the employment market there are times when it heavily experiences trends, e.g. when a big government funded project is announced such as the commonwealth games and they begin listing jobs. A big spike followed by sustained growth of the market would be expected, a typical moving average analysis would take several months to pickup on the new trend where the exponential smoothing will respond much quicker. The other advantage is that it requires much less data to form a reliable model, given only 76days are available this method is preferred.</p>
+							<center><img src="\images\ES_SydneyGrowth.png">
+								<h5>Figure 1.5: Predictive model for Sydney Growth</h5></center>
+							<p>The results from the exponential smoothing can be seen in the above figure, it is evident that It is capable of following the trends of the market without being overreactive to small changes. This method would be best applied to monthly listings as opposed to daily listings, this would be able to generate more realistic expectations.</p>
+							<p>Other forms of predictive analysis are possible and would most likely better encapsulate the trends and seasonality of the job market however it is limited to the time series available in the dataset. If more data were available the best indicator for trends and growth would be a seasonality time series analysis. Where a seasonal index would be calculated for each month and would contribute to the forecast for the following month.</p>
 						</div>
-
+						
 						<div id="mySector" style="display:none">
+							<br>
+							<h1> <b> <center>Seek Dataset Analysis by Market Sector </b></center></h1>
 							<p>As with the analysis completed on the market locations, a similar analysis can be completed upon the market in relation to the Job Sector. An exploratory analysis to visualize which are the top sectors for both market size and average salary, followed by a statistical analysis on the trending sectors to allow for a predictive model on which sectors will have high growth potential with high average salaries.</p>
 							<p>The data has been grouped by number of listings for each sector, this separates the data and reveals which sectors have the largest employment market. For clarity only the five prominent market sectors have been shown below within Figure 2.3.1.</p>
 							<center><img src="\images\TopSectors_Listings.png">
 								<h5>Figure 2.1: Top Sectors by Job Listings</h5></center>
+							<p>This visualizes the data: </p>
+							<ul class="">
+								<li class=""><b>Information Technology:</b> 18,640</li>
+								<li class=""><b>Trades & Services:</b> 14,311</li>
+								<li class=""><b>Healthcare & Medical:</b> 13,444 </li>
+								<li class=""><b>Hospitality & Tourism:</b> 12,436</li>
+								<li class=""><b>Manufacturing, Transport & Logistics:</b> 9,800</li>
+							</ul>
+							<br>
+							<p>The data has then been grouped by the mean salary for each job sector and sorted, the visualized results can be seen in the below figure 2.3.2. </p>
+							<center><img src="\images\TopSectors_Salary.png">
+								<h5>Figure 2.2: Top Sectors by Salary</h5></center>
+							<p>This visualizes the data:</p>
+							<ul class="">
+								<li class=""><b>Information Technology:</b> 18,640</li>
+								<li class=""><b>Trades & Services:</b> 14,311</li>
+								<li class=""><b>Healthcare & Medical:</b> 13,444 </li>
+								<li class=""><b>Hospitality & Tourism:</b> 12,436</li>
+								<li class=""><b>Manufacturing, Transport & Logistics:</b> 9,800</li>
+							</ul>
+							<br>
+							<p>As can be seen there is little correlation between the size of the job sector and the average salary, except for Information & Communication Technology which appears within the top five of both aspects. To determine if there are any outliers that may have a big impact on these results a deeper analysis into the daily listings of each sector will reveal if there are indicators of long-term stable growth within a sector. To visualize this growth the days where the sector had the most listed jobs was tallied and can be seen in the below distribution, only the top 5 sectors have been visualized.</p>
+							<center><img src="\images\TopGrowth_SectorDays.png">
+								<h5>Figure 2.3: Top Growth sectors with Days Most Listed</h5></center>
+							<p>From the above figure it is evident that Information & Communication Technology (ICT) was continuously the most listed sector with nearly double the listings of the second largest sector of Hospitality and Tourism. This however does not give a complete overview of the distribution of job listings, by looking at the average daily listings for each sector will indicate the posting cycle for each sector.  The visualization can be seen within the figure 2.3.3.</p>
+							<p>Separating these distributions reveals and interesting trend in the listing cycles of each sector, Trades & Services ranks the highest with on average over 500 daily listings whereas it is the fourth highest for days where it was the highest listed sector. This indicates that the posting cycle for ICT and Hospitality and Tourism jobs are huge amounts of postings on single days over constant postings throughout the week. Deeper analysis could be completed into which exact times and times of the week these listings occur in order for applicants the best opportunity to apply straight away.</p>
+							<center><img src="\images\TopGrowth_SectorAverage.png">
+								<h5>Figure 2.4: Top Growth sectors by Average Daily Listings</h5></center>
+							<p>A breakdown of each sector is useful as an indicator into the current industry environment and if it is sustaining healthy growth. However, entire sectors encompass huge fields of work in which there exist many specializations that can all perform differently. To gain deeper insight into how the biggest sector is performing, Figure 2.3.4 analyses the subsectors within the ICT industry to determine how each is performing. Totally the number of listings for each subsector it is evident that the industry has a huge demand for Developers/Programmers.</p>
+							<center><img src="\images\ICT SubSectors.png">
+								<h5>Figure 2.5: ICT Breakdown by SubSector</h5></center>
+							<p>The same method the predictive model that was created for the Sydney employment market can also be applied to the ICT Sector to predict the future trends of the dataset. This indicator can be useful in situations where employees are looking at alternative employment and wish to know the current environment of the employment market and how likely they are to find an alternative place of work. The predictive model has been created and can be seen within Figure 2.5.</p>
+							<center><img src="\images\ES_ICTGrowth.png">
+								<h5>Figure 2.6: Predictive model for ICT Growth</h5></center>
+							<p>As can be seen this model also closely follows the trend of the ICT Job listings and in several places such as day 25 and day 50 can accurately predict the model. From this it is possible to capture small trends and use it to plan accordingly, if a prediction was to be made on the current dataset it would be expected that ICT job postings would be made in the 200-300 range. This model is well suited to the task as exponential smoothing performs best on smaller datasets and requires minimum values to form a prediction. There is some tweaking that can be done with the alpha value used in the exponential smoothing algorithm. Alpha determines how the weighting is distributed to between old and new data, with higher alpha values placing much higher weighting on the last periods random variation and can result in sever overfitting. The alpha value chosen for the current models is 0.2, this is able to eliminate as much random variation as possible while still being responsive enough to capture short term trends.</p>
 
 						</div>
 
